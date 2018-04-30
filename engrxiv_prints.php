@@ -4,7 +4,7 @@ require __DIR__ . '/vendor/autoload.php';
 use \Curl\Curl;
 $curl = new Curl();
 $curl->setHeader('Authorization', 'Bearer AUTHTOKEN');
-$curl->get('https://api.osf.io/v2/preprints/?filter[provider]=engrxiv');
+$curl->get('https://api.osf.io/v2/preprints/?filter[provider]=engrxiv&filter[reviews_state][ne]=initial');
 if ($curl->error) {
     echo 'Error: ' . $curl->errorCode . ': ' . $curl->errorMessage . "\n";
 } else {
