@@ -42,7 +42,11 @@ function pageparse($preprint) {
   $status = $attributes->is_published;
   // Grab the preprint DOI.
   if ($status) {
-    $preprintdoi = $links->preprint_doi;
+     $preprintdoilink = $links->preprint_doi;
+     $prefix = 'https://doi.org/';
+     if (substr($preprintdoilink, 0, strlen($prefix)) == $prefix) {
+       $preprintdoi = substr($preprintdoilink, strlen($prefix));
+	 }
   } else {
     // The paper has been rejected, so it won't have a DOI
     $preprintdoi = 'N/A';
