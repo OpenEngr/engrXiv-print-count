@@ -9,7 +9,7 @@ You will need an Authorization Token (https://developer.osf.io/#tag/Authenticati
 
 We use the PHP Curl Class library to handle our GET requests: https://github.com/php-curl-class/php-curl-class
 
-Put your authorization token where it says `AUTHTOKEN`, in two locations.
+Put your authorization token where it says `{YourAuthorizationTokenHere}`, without the curly brackets.
 
 
 ## The Jupyter Notebook
