@@ -33,7 +33,7 @@ if ($curl->error) {
 // Function to parse through a page worth of preprint results.
 function pageparse($preprint) {
   // Parse the data
-  $engrxid = $preprint->relationships->node->data->id;
+  $engrxid = $preprint->id;
   $links = $preprint->links;
   // Grab the URL of the preprint node.
   $url = $links->html;
