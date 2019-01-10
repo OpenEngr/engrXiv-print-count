@@ -47,27 +47,27 @@ function pageparse($preprint) {
      if (substr($preprintdoilink, 0, strlen($prefix)) == $prefix) {
        $preprintdoi = substr($preprintdoilink, strlen($prefix));
 	 }
+	 // Grab the publisher DOI.
+     $publisherdoi = $attributes->doi;
+     // Grab created & modified date, title, abstract, and status.
+     $created = $attributes->date_published;
+     $modified = $attributes->date_modified;
+     $title = $attributes->title;
+     $abstract = $attributes->description;
+     // Get primary file associated with the preprint
+     $file = $preprint->relationships->primary_file->links->related->href;
+    // Grab the download counts associated with the embed
+     $count = $preprint->embeds->primary_file->data->attributes->extra->downloads;
+     // Assemble the data.
+     $fields = array($engrxid, $title, $abstract, $status, $file, $count, $url, $preprintdoi, $publisherdoi, $created, $modified);
+     // Save the data to a CSV.
+     $csv = fopen('engrxiv-papers.csv', 'a+');
+     fputcsv($csv, $fields);
+     fclose($csv);
   } else {
     // The paper has been rejected, so it won't have a DOI
     $preprintdoi = 'N/A';
   }
-  // Grab the publisher DOI.
-  $publisherdoi = $attributes->doi;
-  // Grab created & modified date, title, abstract, and status.
-  $created = $attributes->date_published;
-  $modified = $attributes->date_modified;
-  $title = $attributes->title;
-  $abstract = $attributes->description;
-  // Get primary file associated with the preprint
-  $file = $preprint->relationships->primary_file->links->related->href;
-    // Grab the download counts associated with the embed
-  $count = $preprint->embeds->primary_file->data->attributes->extra->downloads;
-  // Assemble the data.
-  $fields = array($engrxid, $title, $abstract, $status, $file, $count, $url, $preprintdoi, $publisherdoi, $created, $modified);
-  // Save the data to a CSV.
-  $csv = fopen('engrxiv-papers.csv', 'a+');
-  fputcsv($csv, $fields);
-  fclose($csv);
 }
 
 // Function to grab the next page of results.
