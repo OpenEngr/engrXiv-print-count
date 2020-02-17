@@ -1,0 +1,5 @@
+pandas
+datetime
+urllib
+IPython
+matplotlib
