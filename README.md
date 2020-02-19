@@ -1,6 +1,6 @@
 # engrXiv-print-count
 
-This is a cumulative count of engrXiv prints posted over time. The data is collected using the PHP script (modified from [here](https://bitbucket.org/octogroup/osf-preprint-list)).
+This is a pair of documents used to calculate the statistics behind documents posted on Engineering Archive. The data is collected using the PHP script (modified from [here](https://bitbucket.org/octogroup/osf-preprint-list)). The jupyter notebook here is used on: https://blog.engrxiv.org/stats/
 
 ## To use the PHP script
 Use the OSF's API (https://developer.osf.io/) to gather a list of papers in engrXiv so we can gather stats.
