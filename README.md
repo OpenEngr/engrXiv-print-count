@@ -18,3 +18,6 @@ The Jupyter notebook is just a small bit of Python to plot the results that are 
 [![Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/OpenEngr/engrXiv-print-count/blob/master/engrXiv%20prints.ipynb)
 
 [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/OpenEngr/engrXiv-print-count/master?filepath=engrXiv%20prints.ipynb)
+
+## Download all engrXiv files
+The bash script `download_engrxiv.sh` uses the `engrxiv-papers.csv` file which is created using the PHP script, there is an occasionally updated version [available on OSF](https://osf.io/ns9yr/). The reads the CSV files using `csvtool` and then downloads the primary file for each preprint using `wget`. Each file is saved as *GUID.pdf*.
