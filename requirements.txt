@@ -2,3 +2,4 @@ pandas
 datetime
 IPython
 matplotlib
+urllib.request
