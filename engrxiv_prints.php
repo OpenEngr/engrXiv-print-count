@@ -18,7 +18,7 @@ if ($curl->error) {
   fputcsv($csv, $headers);
   fclose($csv);
   echo 'Success!';
-  // Parse a page of results, maximum 100.
+  // Parse a page of results, maximum 10.
   $data = $curl->response->data;
   foreach ($data as &$preprint) {
     pageparse($preprint, $token);
