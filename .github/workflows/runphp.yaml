@@ -18,12 +18,7 @@ jobs:
       env:
         osf_token: ${{ secrets.OSF_TOKEN }}
       run: |
-        rm engrxiv-papers.csv
         php engrxiv_prints.php -p$osf_token
-    - name: Commit and push files
+    - name: upload csv to OSF
       run: |
-        git config --local user.email "action@github.com"
-        git config --local user.name "GitHub Action"
-        git add .
-        git commit -m "commit changes" -a
-        git push origin master
+        curl https://files.osf.io/v1/resources/j49t2/providers/osfstorage/5c2a32270e8efd0018cc8d79?kind=file -H "Authorization: Bearer $osf_token" --upload-file engrxiv-papers.csv
