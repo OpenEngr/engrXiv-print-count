@@ -1,0 +1,36 @@
+name: Update notebook
+
+on:
+  push:
+  schedule:
+    - cron: "5 10 * * 0" # once per week
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up Python
+      uses: actions/setup-python@v2
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+    - uses: yaananth/run-notebook@v1
+      env:
+        RUNNER: ${{ toJson(runner) }}
+        SECRETS: ${{ toJson(secrets) }}
+        GITHUB: ${{ toJson(github) }}
+      with:
+        notebook: "engrXiv_prints.ipynb"
+        params: "params.json"
+        isReport: True
+    - name: move notebook
+      run: |
+        cp /home/runner/work/_temp/nb-runner/engrXiv_prints.ipynb .
+    - name: Commit and push files
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        git add engrXiv_prints.ipynb
+        git commit -m "Update stats notebook" -a
+        git push origin master

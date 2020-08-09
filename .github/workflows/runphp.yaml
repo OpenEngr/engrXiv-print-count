@@ -1,0 +1,29 @@
+name: Update eprint list
+
+on:
+  schedule:
+    - cron: "5 8 * * 0" # once per week
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up PHP
+      uses: shivammathur/setup-php@v2
+      with:
+        php-version: '7.4'
+        tools: composer, php-curl-class
+    - name: run php
+      env:
+        osf_token: ${{ secrets.OSF_TOKEN }}
+      run: |
+        rm engrxiv-papers.csv
+        php engrxiv_prints.php -p$osf_token
+    - name: Commit and push files
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        git add .
+        git commit -m "commit changes" -a
+        git push origin master

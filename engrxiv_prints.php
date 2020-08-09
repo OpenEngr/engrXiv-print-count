@@ -1,6 +1,6 @@
 <?php
 // Secrets
-$token = '{YourAuthorizationTokenHere}';
+$token = join(',', getopt("p:"));
 $provider = 'engrxiv';
 
 // Let's gather the list of preprints stored in the engrXiv repository.
@@ -18,7 +18,7 @@ if ($curl->error) {
   fputcsv($csv, $headers);
   fclose($csv);
   echo 'Success!';
-  // Parse a page of results, maximum 10.
+  // Parse a page of results, maximum 100.
   $data = $curl->response->data;
   foreach ($data as &$preprint) {
     pageparse($preprint, $token);
