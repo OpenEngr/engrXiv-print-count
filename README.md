@@ -9,7 +9,7 @@ You will need an Authorization Token (https://developer.osf.io/#tag/Authenticati
 
 We use the PHP Curl Class library to handle our GET requests: https://github.com/php-curl-class/php-curl-class
 
-You can pass the token to the script by appending `-p$osf_token` to the end of your php command, where `$osf_token` is your token.
+You can pass the token to the script by appending `-p$osf_token` to the end of your php command, where `$osf_token` is your OSF authorization token.
 
 
 ## The Jupyter Notebook
