@@ -32,4 +32,4 @@ jobs:
         git config --local user.name "GitHub Action"
         git add engrXiv_prints.ipynb
         git commit -m "Update stats notebook" -a
-        git push origin master
+        git push origin master -f
