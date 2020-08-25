@@ -1,7 +1,6 @@
 name: Update eprint list
 
 on:
-  push:
   schedule:
     - cron: "5 8 * * 0" # once per week
 

@@ -1,6 +1,7 @@
 name: Update notebook
 
 on:
+  push:
   schedule:
     - cron: "5 10 * * 0" # once per week
 jobs:
