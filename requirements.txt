@@ -1,5 +1,6 @@
-pandas
 datetime
 IPython
 matplotlib
+pandas
+python-dotenv
 requests
