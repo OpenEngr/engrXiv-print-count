@@ -2,9 +2,9 @@
 
 This is a pair of documents used to calculate the statistics behind documents posted on Engineering Archive. The data is collected using the PHP script (modified from [here](https://bitbucket.org/octogroup/osf-preprint-list)). The jupyter notebook here is used on: https://blog.engrxiv.org/stats/
 
-## Set token and basic authentication login
+## Set API token
 
-Create a file in the root directory of this project called `.env`. On each line, provide the required environment variables like `ENGRXIV_API_TOKEN=myToken`
+Set the API access token as `apiToken`
 
 ## The Jupyter Notebook
 
