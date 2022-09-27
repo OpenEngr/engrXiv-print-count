@@ -6,7 +6,7 @@ This is a Jupyter Notebook used to calculate the statistics behind documents pos
 
 [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/OpenEngr/engrXiv-print-count/master?filepath=engrXiv_prints.ipynb)
 
-## Set API token
+## Set variables
 
-Set the API access token as `apiToken`
+Set the API access token as `apiToken` and the base URL for the API as `api`
 
