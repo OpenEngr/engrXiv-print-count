@@ -1,4 +1,5 @@
-pandas
 datetime
 IPython
 matplotlib
+pandas
+requests

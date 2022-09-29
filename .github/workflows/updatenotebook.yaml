@@ -19,6 +19,9 @@ jobs:
         pip install papermill ipykernel
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
     - name: Execute notebook
+      env:
+        OPS_API_TOKEN: ${{ secrets.OPS_API_TOKEN }}
+        API_BASE_URL: https://engrxiv.org/index.php/engrxiv/api/v1
       run: |
         papermill engrXiv_prints.ipynb engrXiv_prints.ipynb
     - name: Commit and push files
