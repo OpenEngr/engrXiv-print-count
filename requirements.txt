@@ -2,4 +2,5 @@ datetime
 IPython
 matplotlib
 pandas
+jupyter-client<8
 requests
