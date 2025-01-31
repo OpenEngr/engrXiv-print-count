@@ -8,5 +8,5 @@ This is a Jupyter Notebook used to calculate the statistics behind documents pos
 
 ## Set variables
 
-Set the API access token as `apiToken` and the base URL for the API as `api`
+Set the API access token as `apiToken`
 

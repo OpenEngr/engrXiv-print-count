@@ -1,2 +1,4 @@
 .dccache
 .env
+.ipynb_checkpoints
+key.json
